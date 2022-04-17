@@ -1,6 +1,10 @@
+import Board from "./components/Board";
+import "./static/css/App.css"
 
-function App() {
-  return <div className="App"></div>
-}
+const App = () => (
+  <>
+    <Board />
+  </>
+)
 
 export default App;

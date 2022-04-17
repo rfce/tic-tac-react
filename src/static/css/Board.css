@@ -1,0 +1,15 @@
+/* Inline grid to prevent taking full width */
+.container {
+    padding: 1vw;
+    display: inline-grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 1vw;
+    background-color: aqua;
+}
+
+.container button {
+    width: 7vw;
+    height: 7vw;
+    border: none;
+    cursor: pointer;
+}
