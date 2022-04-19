@@ -1,0 +1,81 @@
+header {
+    width: 100vw;
+    background-color: #B9F8D3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+}
+
+header img {
+    width: 2vw;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+header h3 {
+    margin: 0;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    color: #4D77FF;
+}
+
+.result_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+    font-weight: 500;
+    color: #404040;
+    margin-right: 2vw;
+}
+
+.result_box * {
+    margin: 0;
+}
+
+.result_box .winner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: 140px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #FAF5E4;
+    background-color: #F8B400;
+    border: 3px solid #FAF5E4;
+}
+
+.result_box .winner p {
+    display: flex;
+    align-items: center;
+}
+
+.result_box .winner p span,
+.result_box .turn p span {
+    margin-left: 5px;
+    font-size: 1.4vw;
+}
+
+.result_box .turn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.result_box .turn p {
+    font-size: 1vw;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}

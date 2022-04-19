@@ -2,22 +2,27 @@ const x = 'clear'
 
 const Result = ({ winner, turn }) => {
 
-    const turn_style = {
-        backgroundColor: 'transparent',
-        color: turn == x ? '#ef4444' : '#059669'
-    }
-
-    const win_style = {
-        backgroundColor: winner == x ? '#FFB5B5' : '#A6CF98',
-        color: winner == x ? '#ef4444' : '#059669'
+    const turn_x = {
+        backgroundColor: turn == x ? 'rgb(239, 68, 68)' : 'rgb(5, 150, 105)',
+        color: turn == x ? 'rgb(255, 228, 192)' : 'rgb(185, 248, 211)',
+        borderColor: turn == x ? 'rgb(255, 228, 192)' : 'rgb(185, 248, 211)'
     }
 
     return (
-        <div className="result_container">
-            <p>{ winner ? 'Winner' : 'Next turn'}</p>
-            <div className="result" style={winner ? win_style : turn_style}>
-                <span class="material-icons-outlined">{ winner ? winner : turn }</span>
-            </div>
+        <div className="result_box">
+            { winner ? ( 
+                <div className="winner">
+                    <span className="material-icons-outlined">
+                        emoji_events
+                    </span>
+                    <p>Winner: <span className="material-icons-outlined">{ winner }</span></p>
+                    
+                </div>
+            ) : (
+                <div className="turn" style={ turn_x }>
+                    <p>Next turn <span className="material-icons-outlined">{ turn }</span></p>
+                </div>
+            )}
         </div>
     )
 }
