@@ -21,4 +21,8 @@ const check_winner = (board) => {
 	return null
 }
 
-export default check_winner
+const game_over = (board) => {
+	return board.every(box => box !== null)
+}
+
+export { check_winner, game_over }

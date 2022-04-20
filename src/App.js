@@ -1,5 +1,5 @@
 import { useState } from "react"
-import check_winner from "./Helpers/winner"
+import { check_winner, game_over } from "./Helpers/board"
 import Board from "./components/Board"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -14,9 +14,11 @@ const App = () => {
     const [turn, setTurn] = useState(x)
     const winner = check_winner(board)
 
+    const running = game_over(board)
+
     return (
         <>
-            <Header winner={winner} turn={turn} />
+            <Header winner={winner} turn={turn} game_over={running} />
             <Board
                 board={board}
                 setBoard={setBoard}
