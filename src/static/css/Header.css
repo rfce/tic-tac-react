@@ -5,6 +5,7 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+    user-select: none;
 }
 
 header img {
@@ -78,4 +79,38 @@ header h3 {
     padding-left: 5px;
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 481px) {
+    header {
+        height: 8vh;
+    }
+
+    header img {
+        width: 8vw;
+        margin-left: 6vw;
+    }
+
+    header h3 {
+        justify-content: left;
+        margin-left: 18vw;
+    }
+
+    .result_box {
+        margin-right: 4vw;
+    }
+
+    .result_box .turn {
+        width: 28vw;
+    }
+
+    .result_box .turn p {
+        font-size: 3.2vw;
+    }
+
+    .result_box .winner p span,
+    .result_box .turn p span {
+        font-size: 5vw;
+    }
+
 }

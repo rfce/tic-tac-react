@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AppContext } from "../App"
 import "../static/css/Board.css"
 
 const x = 'clear'
@@ -6,7 +7,9 @@ const o = 'fiber_manual_record'
 
 const blank_boxes = Array(9).fill(null)
 
-const Board = ({ board, setBoard, turn, setTurn, winner }) => {
+const Board = ({ board, setBoard, setTurn }) => {
+
+	const { winner, turn } = useContext(AppContext)
 
 	const [old, setOld] = useState({ board: blank_boxes, turn: x })
 
@@ -48,7 +51,7 @@ const Board = ({ board, setBoard, turn, setTurn, winner }) => {
 				{ !winner &&
 					JSON.stringify(board) != JSON.stringify(blank_boxes) && (
 						<div className='undo' onClick={undo_move} style={{ color: can_undo && '#C7B198', borderColor: can_undo && '#C7B198' }}>
-							<span class="material-icons-outlined">
+							<span className="material-icons-outlined">
 								restore
 							</span>
 							<button>Undo</button>

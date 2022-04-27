@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8vh;
+    user-select: none;
 }
 
 .settings {
@@ -75,3 +76,27 @@ footer {
     background: linear-gradient(45deg, rgba(24,185,185,1) 0%, rgba(6,133,133,1) 23%, rgba(10,119,119,1) 39%, rgba(9,147,147,1) 60%, rgba(161,227,216,1) 100%);
 
 }
+
+@media screen and (max-width: 481px) {
+    .board {
+        width: 70vw;
+        height: 70vw;
+        gap: 1.4vw;
+    }
+
+    .board button span {
+        font-size: 10vw;
+    }
+
+    .settings .undo  {
+        font-size: 4.3vw;
+        width: 34vw;
+    }
+
+    .settings > button {
+        font-size: 4.3vw;
+        width: 34vw;
+    }
+
+}
+

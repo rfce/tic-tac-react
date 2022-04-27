@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, createContext } from "react"
 import { check_winner, game_over } from "./Helpers/board"
 import Board from "./components/Board"
 import Footer from "./components/Footer"
@@ -9,6 +9,8 @@ const x = 'clear'
 
 const blank_boxes = Array(9).fill(null)
 
+export const AppContext = createContext()
+
 const App = () => {
     const [board, setBoard] = useState(blank_boxes)
     const [turn, setTurn] = useState(x)
@@ -18,14 +20,14 @@ const App = () => {
 
     return (
         <>
-            <Header winner={winner} turn={turn} game_over={running} />
-            <Board
-                board={board}
-                setBoard={setBoard}
-                turn={turn}
-                setTurn={setTurn}
-                winner={winner}
-            />
+            <AppContext.Provider value={{ winner, turn, running }}>
+                <Header />
+                <Board
+                    board={board}
+                    setBoard={setBoard}
+                    setTurn={setTurn}
+                />
+            </AppContext.Provider>
             <Footer />
         </>
     )
