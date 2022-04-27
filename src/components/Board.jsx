@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { AppContext } from "../App"
+import Box from './Box'
 import "../static/css/Board.css"
 
 const x = 'clear'
@@ -7,7 +8,7 @@ const o = 'fiber_manual_record'
 
 const blank_boxes = Array(9).fill(null)
 
-const Board = ({ board, setBoard, setTurn }) => {
+const Board = ({ board, setBoard, setTurn, winner_row }) => {
 
 	const { winner, turn } = useContext(AppContext)
 
@@ -31,29 +32,28 @@ const Board = ({ board, setBoard, setTurn }) => {
 		setTurn(old.turn)
 	}
 
-	const can_undo = JSON.stringify(board) == JSON.stringify(old.board)
+	const string_board = JSON.stringify(board)
+
+	const can_undo = string_board != JSON.stringify(old.board)
+
+	const game_started = string_board != JSON.stringify(blank_boxes)
 
 	return (
 		<div className="container">
 			<div className="board">
-				{board.map((value, index) => 
-					<button key={index}
-						style={{
-							backgroundColor: value && (value == x ? '#FFE4C0' : '#B9F8D3'), 
-							color: value && (value == x ? '#ef4444' : '#059669') 
-						}}
-						onClick={() => pencil(index)}>
-						<span className="material-icons-outlined">{value}</span>
-					</button>
+				{ board.map((value, index) => <Box 
+												key={index} 
+												index={index} 
+												value={value} 
+												pencil={pencil} 
+												highlight={ winner && winner_row.includes(index) } 
+											/>
 				)}
 			</div>
 			<div className='settings'>
-				{ !winner &&
-					JSON.stringify(board) != JSON.stringify(blank_boxes) && (
-						<div className='undo' onClick={undo_move} style={{ color: can_undo && '#C7B198', borderColor: can_undo && '#C7B198' }}>
-							<span className="material-icons-outlined">
-								restore
-							</span>
+				{ game_started && !winner && (
+						<div className={ can_undo ? 'undo' : 'undo undo-disabled' } onClick={undo_move}>
+							<span className="material-icons-outlined">restore</span>
 							<button>Undo</button>
 						</div>
 					)

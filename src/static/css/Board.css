@@ -27,6 +27,11 @@
     cursor: pointer;
 }
 
+.settings .undo-disabled {
+    color: #C7B198;
+    border-color: #C7B198;
+}
+
 .settings .undo button {
     all: unset;
     font-weight: 500;
@@ -63,6 +68,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.board .red {
+    color: #EF4444;
+    background-color: #FFE4C0;
+}
+
+.board .red-highlight {
+    color: #8C0000;
+    background-color: #FFBE0F;
+}
+
+.board .green {
+    color: #059669;
+    background-color: #B9F8D3;
+}
+
+.board .green-highlight {
+    color: white;
+    background-color: #06FF00;
 }
 
 .board button span {

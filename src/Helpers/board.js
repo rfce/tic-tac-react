@@ -14,11 +14,14 @@ const check_winner = (board) => {
 	for (let i = 0; i < lines.length; i++) {
 		const [a, b, c] = lines[i]
 		if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-			return board[a]
+			return {
+				'winner': board[a],
+				'winner_row': lines[i]
+			}
 		}
 	}
 
-	return null
+	return { 'winner': null, 'winner_row': null }
 }
 
 const game_over = (board) => {

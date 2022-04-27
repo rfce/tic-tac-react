@@ -14,7 +14,7 @@ export const AppContext = createContext()
 const App = () => {
     const [board, setBoard] = useState(blank_boxes)
     const [turn, setTurn] = useState(x)
-    const winner = check_winner(board)
+    const { winner, winner_row } = check_winner(board)
 
     const running = game_over(board)
 
@@ -26,6 +26,7 @@ const App = () => {
                     board={board}
                     setBoard={setBoard}
                     setTurn={setTurn}
+                    winner_row={winner_row}
                 />
             </AppContext.Provider>
             <Footer />
